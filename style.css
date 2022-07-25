@@ -1,0 +1,19 @@
+.game-board {
+    background-color: red;
+    height: 40vw;
+    width: 40vw;
+}
+
+.all-tiles {
+    height: inherit;
+    width: inherit;
+    display: grid;
+    grid-template-columns: repeat(3, 32%);
+    grid-template-rows: repeat(3, 32%);
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.tile  {
+    background-color: blue;
+}
