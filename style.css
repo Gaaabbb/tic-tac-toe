@@ -1,3 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/* body {
+    background-image: url(Dojo.png);
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: 80% 80%;
+    background-position: center center;
+} */
+
 .game-board {
     background-color: red;
     height: 40vw;
