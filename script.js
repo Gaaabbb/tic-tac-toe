@@ -44,17 +44,14 @@ const displayController = (() => {
     }
 
     function displayScores() {
-        const player1 = document.querySelector(`.p1-score`)
-        const player2 = document.querySelector(`.p2-score`)
-        const tie = document.querySelector(".tie-score")
-        player1.textContent = `Player 1 Score: ${players.player1.score}`
-        player2.textContent = `Player 2 Score: ${players.player2.score}`
-        tie.textContent = `Tie: ${players.tieScore}`
+        const scoreBoard = document.querySelector(".score-board")
+        scoreBoard.textContent = `${players.player1.score} 
+        - ${players.tieScore} - ${players.player2.score} `
     }
 
     function displayRound() {
         const round = document.querySelector('.round')
-        round.textContent = `Round: ${gameMechanics.gameInfo.round}`
+        round.textContent = `Round ${gameMechanics.gameInfo.round}`
     }
     return {displayTileMarks, displayScores, displayRound}
 })()
@@ -68,8 +65,10 @@ const gameMechanics = (() => {
         gameStatus: "ongoing",
         round: 1
     }
-    const _restartButton = document.querySelector(".restart")
-    const _rematchButton = document.querySelector(".rematch")
+    // const _restartButton = document.querySelector(".restart")
+    // const _rematchButton = document.querySelector(".rematch")
+    // _restartButton.onclick = _restartGame
+    // _rematchButton.onclick = _rematchGame
 
     gameBoard.tilesDisplay.forEach((tileDisplay, index) => {
     tileDisplay.onclick = () => {
@@ -77,39 +76,34 @@ const gameMechanics = (() => {
 
         gameBoard.tileMarks[index] = players.currentPlayer.mark
         displayController.displayTileMarks()
-        checkForGameOver()
+        _checkForGameOver()
         console.log("player change!")
         players.changePlayerTurn()
-        
         if (gameInfo.gameStatus === "finished") console.log("Game Over")
     }
-
     })
-
-    _restartButton.onclick = restartGame
-    _rematchButton.onclick = rematchGame
 
     function isTileFilled(index) {
         return gameBoard.tileMarks[index] !== ""
     }
     
 
-    function checkForGameOver() {
-        if (checkForWinner()) {
+    function _checkForGameOver() {
+        if (_checkForWinner()) {
             console.log(`Player ${players.currentPlayer.playerNum} wins the game!`)
-            increaseScore("win")
-            toggleGame("stop")
+            _increaseScore("win")
+            _toggleGame("stop")
             displayController.displayScores()
         }
-        else if (checkForTie()) {
+        else if (_checkForTie()) {
             console.log("It's a tie!")
-            increaseScore("tie")
-            toggleGame("stop")
+            _increaseScore("tie")
+            _toggleGame("stop")
             displayController.displayScores()
         }
     }
 
-    function checkForWinner() {
+    function _checkForWinner() {
         const winCombinations = [
             [0, 1, 2],
             [3, 4, 5],
@@ -129,22 +123,22 @@ const gameMechanics = (() => {
         return false
     }
 
-    function checkForTie() {
+    function _checkForTie() {
         let isThereATie = gameBoard.tileMarks.every(tile => {return tile !== ""})
         return isThereATie
     }
 
-    function increaseScore(result) {
+    function _increaseScore(result) {
         if (result === "win") players.currentPlayer.score += 1
         else if (result === "tie") players.tieScore += 1
     }
 
-    function toggleGame(status) {
+    function _toggleGame(status) {
         if (status === "start") gameInfo.gameStatus = "ongoing" 
         else if (status === "stop")gameInfo.gameStatus = "finished"
     }
 
-    function restartGame() {
+    function _restartGame() {
         gameBoard.tileMarks = ["", "", "", "", "", "", "", "", ""]
         gameBoard.tilesDisplay.forEach((tile, index) => {
             tile.textContent = gameBoard.tileMarks[index]
@@ -156,17 +150,17 @@ const gameMechanics = (() => {
         gameInfo.round = 1
         displayController.displayScores()
         displayController.displayRound()
-        toggleGame("start")
+        _toggleGame("start")
     }  
 
-    function rematchGame() {
+    function _rematchGame() {
         gameBoard.tileMarks = ["", "", "", "", "", "", "", "", ""]
         gameBoard.tilesDisplay.forEach((tile, index) => {
             tile.textContent = gameBoard.tileMarks[index]
         })
         gameInfo.round += 1
         displayController.displayRound()
-        toggleGame("start")
+        _toggleGame("start")
     }
 
     return {gameInfo}

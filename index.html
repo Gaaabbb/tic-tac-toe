@@ -9,8 +9,15 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="game-board">
-        <div class="all-tiles">
+    <div class="game-container">
+        <div class="score-board">0 - 0 - 0</div>
+        <div class="round">Round 1</div>
+        <div class="player-1">
+            <p class="turn">Your Turn!</p>
+            <div class="avatar"></div>
+            <p class="name">Lynx</p>
+        </div>
+        <div class="game-board">
             <div class="tile" id="tile-0"></div>
             <div class="tile" id="tile-1"></div>
             <div class="tile" id="tile-2"></div>
@@ -21,15 +28,13 @@
             <div class="tile" id="tile-7"></div>
             <div class="tile" id="tile-8"></div>
         </div>
+        <div class="player-2">
+            <p class="turn">Your Turn!</p>
+            <div class="avatar"></div>
+            <p class="name">Hermit</p>
+        </div>
+        <!-- <button class="restart">Restart</button>
+        <button class="rematch">Rematch</button>  -->
     </div>
-    <div class="scoreboard">
-        <p class="p1-score">Player 1 Score: 0</p>
-        <p class="p2-score">Player 2 Score: 0</p>
-        <p class="tie-score">Tie: 0</p>
-        <p class="round">Round: 1</p>
-    </div>
-    <button class="restart">Restart</button>
-    <button class="rematch">Rematch</button>
-    <div class="bg-image"></div>
 </body>
 </html>
