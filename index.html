@@ -6,10 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="game-container">
+    <div class="character-selection">
+
+        <p class="title">Select Your Character</p>
+        <div class="p-select-cont">
+            <i class="fa-solid fa-caret-left"></i>
+            <div class="p1-select">
+                <p class="p-mark">Player 1 Mark : X</p>
+                <div class="avatar"></div>
+                <p class="name">Lynx</p>
+            </div>
+            <i class="fa-solid fa-caret-right"></i>
+        </div>
+        <img class="play-button" src="images/play-button.png">
+        <div class="p-select-cont">
+            <i class="fa-solid fa-caret-left"></i>
+            <div class="p2-select">
+                <p class="p-mark">Player 2 Mark : O</p>
+                <div class="avatar"></div>
+                <p class="name">Lynx</p>
+            </div>
+            <i class="fa-solid fa-caret-right"></i>
+        </div>
+        <div class="location-cont">
+            <img class="location-pic" src="images/locations/Dojo.png">
+            <p class="location-name">Dojo</p>
+        </div>
+    </div>
+    <!-- <div class="game-container">
         <div class="score-board">0 - 0 - 0</div>
         <div class="round">Round 1</div>
         <div class="player-1">
@@ -33,8 +63,8 @@
             <div class="avatar"></div>
             <p class="name">Hermit</p>
         </div>
-        <!-- <button class="restart">Restart</button>
-        <button class="rematch">Rematch</button>  -->
-    </div>
+        <button class="restart">Restart</button>
+        <button class="rematch">Rematch</button> 
+    </div> -->
 </body>
 </html>
