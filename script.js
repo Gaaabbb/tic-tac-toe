@@ -174,3 +174,35 @@ function setPlace(place) {
     const body = document.querySelector("body")
     body.style.backgroundImage = `url("${place}.png")`
 }
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+const screen = (() => {
+    const nextButtons = document.querySelectorAll(".next")
+    const backButtons = document.querySelectorAll(".back")
+    const homeButton = document.querySelector(".home-button")
+    const screens = document.querySelectorAll(".screen")
+    let activeScreenNum = 0
+
+    nextButtons.forEach(nextButton => {
+        nextButton.onclick = changeScreen.bind(null, "next")
+    })
+    backButtons.forEach(backButton => {
+        backButton.onclick = changeScreen.bind(null, "back")
+    })
+    homeButton.onclick = changeScreen.bind(null, "home")
+
+    function changeScreen(action) {
+        if (action === "next") activeScreenNum += 1
+        else if (action === "back") activeScreenNum -= 1
+        else activeScreenNum = 0
+
+        screens.forEach(screen => {
+            screen.classList.add("hide")
+            console.log(screen)
+        })
+        screens[activeScreenNum].classList.remove("hide")
+    }
+})()

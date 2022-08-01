@@ -12,41 +12,86 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="character-selection">
 
+
+<!-------------------------------------------------------------------------------------->
+
+    <div class="home screen hide">
+        <p class="title">Tic-Tac-Toe</p>
+        <button class="play-button next">Play</button>
+    </div>
+
+
+<!-------------------------------------------------------------------------------------->
+
+
+    <div class="character-selection screen hide">
+        <img class="back-button back" src="images/back-button.png">
         <p class="title">Select Your Character</p>
-        <div class="p-select-cont">
+        
+        <div class="player-select-container">
             <i class="fa-solid fa-caret-left"></i>
-            <div class="p1-select">
-                <p class="p-mark">Player 1 Mark : X</p>
-                <div class="avatar"></div>
-                <p class="name">Lynx</p>
-            </div>
             <i class="fa-solid fa-caret-right"></i>
+            <div class="player-1-select">
+                <p class="player-mark">Player 1 Mark : X</p>
+                <img class="avatar" src="images/avatars/Lynx.png">
+                <input type="text" class="name" id="player-1-name" name="player-1-name" 
+                placeholder="Lynx" spellcheck="false">
+            </div>
         </div>
-        <img class="play-button" src="images/play-button.png">
-        <div class="p-select-cont">
+
+        <div class="button-container">
+            <p class="next-button-label">Next</p>
+            <img class="next-button next" src="images/next-button.png">
+        </div>
+
+        <div class="player-select-container">
             <i class="fa-solid fa-caret-left"></i>
-            <div class="p2-select">
-                <p class="p-mark">Player 2 Mark : O</p>
-                <div class="avatar"></div>
-                <p class="name">Lynx</p>
-            </div>
             <i class="fa-solid fa-caret-right"></i>
-        </div>
-        <div class="location-cont">
-            <img class="location-pic" src="images/locations/Dojo.png">
-            <p class="location-name">Dojo</p>
+            <div class="player-2-select">
+                <p class="player-mark">Player 2 Mark : O</p>
+                <img class="avatar" src="images/avatars/Hermit.png">
+                <input type="text" class="name" id="player-2-name" name="player-2-name" 
+                placeholder="Hermit" spellcheck="false">
+            </div>
         </div>
     </div>
-    <!-- <div class="game-container">
+
+
+<!-------------------------------------------------------------------------------------->
+
+
+    <div class="location-selection screen hide">
+        <img class="back-button back" src="images/back-button.png">
+        <p class="title">Select Your Location</p>
+        <div class="location-selection-info">
+            <i class="fa-solid fa-caret-left"></i>
+            <i class="fa-solid fa-caret-right"></i>
+            <img class="location-picture" src="images/locations/Dojo.png">
+            <p class="location-name">Dojo</p>
+        </div>
+        <img class="start-button next" src="images/start-button.png">
+    </div>
+
+
+<!-------------------------------------------------------------------------------------->
+
+
+    <div class="game-container screen hide">
+        <div class="buttons">
+            <img class="home-button" src="images/home-button.png">
+            <img class="restart-button" src="images/restart-button.png">
+        </div>
+
         <div class="score-board">0 - 0 - 0</div>
         <div class="round">Round 1</div>
+
         <div class="player-1">
             <p class="turn">Your Turn!</p>
-            <div class="avatar"></div>
+            <img class="avatar" src="images/avatars/Lynx.png">
             <p class="name">Lynx</p>
         </div>
+
         <div class="game-board">
             <div class="tile" id="tile-0"></div>
             <div class="tile" id="tile-1"></div>
@@ -58,13 +103,32 @@
             <div class="tile" id="tile-7"></div>
             <div class="tile" id="tile-8"></div>
         </div>
+
         <div class="player-2">
             <p class="turn">Your Turn!</p>
-            <div class="avatar"></div>
+            <img class="avatar" src="images/avatars/Hermit.png">
             <p class="name">Hermit</p>
+        </div> 
+
+        <!-- <button class="restart">Restart</button>
+        <button class="rematch">Rematch</button> -->
+    </div>
+
+
+<!-------------------------------------------------------------------------------------->
+
+
+
+    <div class="modals-container">
+        <div class="modal hide">
+            <p class="modal-title">Do You Want To Quit?</p>
+            <button class="modal-button">Quit</button>
         </div>
-        <button class="restart">Restart</button>
-        <button class="rematch">Rematch</button> 
-    </div> -->
+        <div class="modal hide">
+            <p class="modal-title">Do You Want To Restart The Game?</p>
+            <button class="modal-button">Restart</button>
+        </div>
+    </div>
+
 </body>
 </html>
