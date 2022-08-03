@@ -16,7 +16,7 @@
 
 <!-------------------------------------------------------------------------------------->
 
-    <div class="home screen hide">
+    <div class="home screen">
         <p class="title">Tic-Tac-Toe</p>
         <button class="play-button next">Play</button>
     </div>
@@ -29,14 +29,14 @@
         <img class="back-button back" src="images/back-button.png">
         <p class="title">Select Your Character</p>
         
-        <div class="player-select-container">
+        <div class="player-1-select">
             <i class="fa-solid fa-caret-left"></i>
             <i class="fa-solid fa-caret-right"></i>
-            <div class="player-1-select">
+            <div class="player-1-select-info">
                 <p class="player-mark">Player 1 Mark : X</p>
-                <img class="avatar" src="images/avatars/Lynx.png">
+                <img class="avatar" src="images/avatars/Shadow.png">
                 <input type="text" class="name" id="player-1-name" name="player-1-name" 
-                placeholder="Lynx" spellcheck="false">
+                placeholder="Shadow" spellcheck="false">
             </div>
         </div>
 
@@ -45,14 +45,14 @@
             <img class="next-button next" src="images/next-button.png">
         </div>
 
-        <div class="player-select-container">
+        <div class="player-2-select">
             <i class="fa-solid fa-caret-left"></i>
             <i class="fa-solid fa-caret-right"></i>
-            <div class="player-2-select">
+            <div class="player-2-select-info">
                 <p class="player-mark">Player 2 Mark : O</p>
-                <img class="avatar" src="images/avatars/Hermit.png">
+                <img class="avatar" src="images/avatars/Shadow.png">
                 <input type="text" class="name" id="player-2-name" name="player-2-name" 
-                placeholder="Hermit" spellcheck="false">
+                placeholder="Shadow" spellcheck="false">
             </div>
         </div>
     </div>
@@ -88,8 +88,8 @@
 
         <div class="player-1">
             <p class="turn">Your Turn!</p>
-            <img class="avatar" src="images/avatars/Lynx.png">
-            <p class="name">Lynx</p>
+            <img class="avatar" src="images/avatars/Shadow.png">
+            <p class="name">Shadow</p>
         </div>
 
         <div class="game-board">
@@ -106,8 +106,8 @@
 
         <div class="player-2">
             <p class="turn">Your Turn!</p>
-            <img class="avatar" src="images/avatars/Hermit.png">
-            <p class="name">Hermit</p>
+            <img class="avatar" src="images/avatars/Shadow.png">
+            <p class="name">Shadow</p>
         </div> 
 
         <!-- <button class="restart">Restart</button>
@@ -119,15 +119,19 @@
 
 
 
-    <div class="modals-container">
-        <div class="modal hide">
+    <div class="modal-container modal-hide">
+        <div class="overlay overlay-close"></div>
+        <div class="modal modal-close">
             <p class="modal-title">Do You Want To Quit?</p>
-            <button class="modal-button">Quit</button>
+            <div class="buttons">
+                <button class="yes">Quit</button>
+                <button class="no">No</button>
+            </div>
         </div>
-        <div class="modal hide">
+        <!-- <div class="modal restart-modal modal-close">
             <p class="modal-title">Do You Want To Restart The Game?</p>
             <button class="modal-button">Restart</button>
-        </div>
+        </div> -->
     </div>
 
 </body>

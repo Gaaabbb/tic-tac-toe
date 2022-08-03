@@ -43,7 +43,7 @@ body {
 }
 .round {
     position: absolute;
-    bottom: 1vw;
+    bottom: -3px;
     color: white;
     font-size: 3.5vw
 }
@@ -126,7 +126,12 @@ body {
 .player-1 > .name, .player-2 > .name {
     position: relative;
     bottom: max(2vw, 1.5vh);
+    width: 90%;
     font-size: max(2vw, 1.5vh);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
 }
 .player-1 > .avatar, .player-2 > .avatar {
     width: 100%;
@@ -160,7 +165,8 @@ body {
     padding-bottom: 5vh;
 }
 
-.player-select-container {
+.player-1-select,
+.player-2-select {
     position: relative;
     height: max(24vw, 32vh);
     width: max(18vw, 24vh);
@@ -168,7 +174,7 @@ body {
     align-items: center;
 }
 
-.player-1-select, .player-2-select {
+.player-1-select-info, .player-2-select-info {
     background-image: url(images/character-selection.png);
     background-size: 100% 100%;
     width: inherit;
@@ -178,10 +184,13 @@ body {
     align-items: center;
     justify-content: center;
 }
-.player-1-select .avatar, .player-2-select .avatar {
+.player-1-select-info .avatar, .player-2-select-info .avatar {
     width: 80%;
 }
-.player-1-select .name, .player-2-select .name {
+.player-1-select-info .avatar {
+    transform: scaleX(-1);
+}
+.player-1-select-info .name, .player-2-select-info .name {
     position: absolute;
     bottom: max(4.5vw, 5vh);
     width: 70%;
@@ -192,7 +201,7 @@ body {
     font-size: max(2vw, 3vh);
     text-align: center;
 }
-.player-1-select .player-mark, .player-2-select .player-mark {
+.player-1-select-info .player-mark, .player-2-select-info .player-mark {
     position: absolute;
     top: max(3vw, 4vh);
     font-size: max(1.5vw, 2.5vh);
@@ -260,6 +269,7 @@ body {
 }
 .location-selection > .title {
     padding-top: 3vw;
+    padding-bottom: calc(12vh - 5vw);
     font-size: max(3vw, 3.6vh);
 }
 .location-selection-info {
@@ -319,6 +329,8 @@ body {
 
 
 .home {
+    position: relative;
+    top: -10%;
     width: inherit;
     height: inherit;
     display: flex;
@@ -328,15 +340,15 @@ body {
     gap: 4vw;
 }
 .home > .title {
-    font-size: 6vw;
+    font-size: max(6vw, 7vh);
 }
 .home > .play-button {
     background-image: url(images/play-button.png);
     background-size: 100% 100%;
     background-color: transparent;
     border: none;
-    padding: .5vw 4vw;
-    font-size: 3vw;
+    padding: max(.5vw, 1vh) max(4vw, 4vh);
+    font-size: max(3vw, 3.5vh);
     transition: all 100ms ease-in-out;
 }
 .home > .play-button:hover {
@@ -350,7 +362,8 @@ body {
 
 
 /* --------------------------------------------- */
-.modals-container {
+.modal-container {
+    z-index: 10;
     width: inherit;
     height: inherit;
     display: flex;
@@ -361,20 +374,27 @@ body {
 .modal {
     position: relative;
     top: -5vh;
+    z-index: 100;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2vw;
-    width: 35vw;
-    padding: max(6vw, 8vh) max(4vw, 6vh);
+    gap: max(2vw, 3vh);
+    width: max(35vw, 40vh);
+    padding: max(6vw, 6vh) max(4vw, 4vh);
     background-image: url(images/modal.png);
     background-size: 100% 100%;
+    transform: scale(1);
+    transition: all 100ms ease-in-out;
 }
 .modal-title {
     font-size: max(2.5vw, 3vh);
     text-align: center;
 }
-.modal-button {
+.modal-container .buttons {
+    display: flex;
+    gap: max(4vw, 4vh)
+}
+.modal button {
     padding: .5vw 2vw;
     border: none;    
     background-image: url(images/modal-button.png);
@@ -384,17 +404,40 @@ body {
     font-size: max(2vw, 3vh);
     transition: all 100ms ease-in-out;
 }
-.modal-button:hover {
-    transform: scale(1.2);
+.modal-container button:hover {
+    transform: scale(1.1);
     transition: all 100ms ease-in-out;
 }
-.modal-button:active {
-    transform: scale(1.1);
+.modal-container button:active {
+    transform: scale(1.05);
     transition: all 50ms ease-in-out;
 }
+.overlay {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: rgba(0, 0, 0, .3);
+    transition: all 100ms ease-in-out;
+    opacity: 1;
+}
+
+.modal-hide {
+    z-index: -10;
+    position: absolute;
+}
+.overlay-close {
+    visibility: hidden;
+    opacity: 0;
+}
+.modal-close {
+    transform: scale(0);
+}
+
 
 /* --------------------------------------------- */
-.hide {display: none !important;}
+.hide {
+    display: none !important;
+}
 /* --------------------------------------------- */
 
 
