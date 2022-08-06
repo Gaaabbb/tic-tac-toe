@@ -35,7 +35,7 @@ body {
 
 .score-board {
     position: absolute;
-    top: 10px;
+    top: 1vw;
     padding: max(2vw, 2vh) max(1.5vw, 1.5vh) 0;
     background-image: url(images/score-board.png);
     background-size: 100% 100%;
@@ -43,7 +43,7 @@ body {
 }
 .round {
     position: absolute;
-    bottom: -3px;
+    bottom: max(-.5vw, -.1vh);
     color: white;
     font-size: 3.5vw
 }
@@ -57,6 +57,9 @@ body {
     aspect-ratio: 1 / 1;
 }
 .tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-image: url(images/tile.png);
     background-size: cover;
     border-radius: 10px;
@@ -65,6 +68,15 @@ body {
 }
 .tile:hover {
     opacity: 100%
+}
+.tile-filled {
+    opacity: 100%
+}
+.tile .mark {
+    width: 80%;
+    height: 80%;
+    /* background-image: url(images/o-mark.png); */
+    background-size: cover ;
 }
 .game-container .buttons {
     position: absolute;
@@ -93,7 +105,7 @@ body {
 
 .player-1, .player-2 {
     position: absolute;
-    bottom: 8vw;
+    bottom: calc(10vw - 1.5vh);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -110,11 +122,11 @@ body {
 .player-2 {
     right: 2vw;
 }
-.player-1:hover {
+.player-1-turn {
     transform: scale(1.2) translate(3vw, -3vw);
     transition: all 100ms ease-in-out;
 }
-.player-2:hover {
+.player-2-turn {
     transform: scale(1.2) translate(-3vw, -3vw);
     transition: all 100ms ease-in-out;
 }
@@ -125,13 +137,17 @@ body {
 }
 .player-1 > .name, .player-2 > .name {
     position: relative;
-    bottom: max(2vw, 1.5vh);
-    width: 90%;
+    bottom: max(2.5vw, 1.6vh);
     font-size: max(2vw, 1.5vh);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
+}
+.player-1 > .mark, .player-2 > .mark {
+    position: absolute;
+    bottom: 1vw;
+    font-size: max(1.5vw, 1vh);
 }
 .player-1 > .avatar, .player-2 > .avatar {
     width: 100%;
@@ -231,11 +247,11 @@ body {
     align-items: center;
     gap: 1vw;
 }
-.next-button {
+.continue-button {
     width: max(8vw, 10vh);
     transition: all 100ms ease-in-out;
 }
-.next-button-label {
+.continue-button-label {
     font-size: max(3vw, 4vh);
 }
 .character-selection .back-button {
@@ -244,12 +260,12 @@ body {
     left: 10vw;
     width: max(4vw, 5vh);
 }
-.character-selection .next-button:hover,
+.character-selection .continue-button:hover,
 .character-selection .back-button:hover {
     transform: scale(1.2);
     transition: all 100ms ease-in-out;
 }
-.character-selection .next-button:active,
+.character-selection .continue-button:active,
 .character-selection .back-button:active {
     transform: scale(1.1);
     transition: all 50ms ease-in-out;
@@ -282,7 +298,7 @@ body {
 .location-picture {
     width: max(40vw, 35vh);
 }
-.location-name {
+.location-title {
     padding-top: 1vw;
     text-align: center;
     font-size: max(2.5vw, 3vh);
@@ -363,6 +379,7 @@ body {
 
 /* --------------------------------------------- */
 .modal-container {
+    position: absolute;
     z-index: 10;
     width: inherit;
     height: inherit;
@@ -372,7 +389,6 @@ body {
 }
 
 .modal {
-    position: relative;
     top: -5vh;
     z-index: 100;
     display: flex;
@@ -384,31 +400,31 @@ body {
     background-image: url(images/modal.png);
     background-size: 100% 100%;
     transform: scale(1);
-    transition: all 100ms ease-in-out;
+    transition: all 150ms ease-in-out;
 }
-.modal-title {
+.modal .title {
     font-size: max(2.5vw, 3vh);
     text-align: center;
 }
-.modal-container .buttons {
+.modal .buttons {
     display: flex;
     gap: max(4vw, 4vh)
 }
 .modal button {
-    padding: .5vw 2vw;
+    padding: .5vw max(1vw, 1.5vh);
     border: none;    
     background-image: url(images/modal-button.png);
     background-size: 100% 100%;
     background-color: transparent;
     color: rgb(250, 250, 250);
     font-size: max(2vw, 3vh);
-    transition: all 100ms ease-in-out;
+    transition: all 50ms ease-in-out;
 }
-.modal-container button:hover {
+.modal button:hover {
     transform: scale(1.1);
-    transition: all 100ms ease-in-out;
+    transition: all 50ms ease-in-out;
 }
-.modal-container button:active {
+.modal button:active {
     transform: scale(1.05);
     transition: all 50ms ease-in-out;
 }
@@ -417,16 +433,14 @@ body {
     width: inherit;
     height: inherit;
     background-color: rgba(0, 0, 0, .3);
-    transition: all 100ms ease-in-out;
+    transition: all 250ms ease-in-out;
     opacity: 1;
 }
 
 .modal-hide {
     z-index: -10;
-    position: absolute;
 }
 .overlay-close {
-    visibility: hidden;
     opacity: 0;
 }
 .modal-close {
