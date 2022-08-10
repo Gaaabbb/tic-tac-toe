@@ -75,33 +75,38 @@ body {
 .tile .mark {
     width: 80%;
     height: 80%;
-    /* background-image: url(images/o-mark.png); */
     background-size: cover ;
 }
+
 .game-container .buttons {
     position: absolute;
     top: 0;
     left: -6vw;
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 2vh;
 }
 .game-container .home-button,
-.game-container .restart-button {
+.game-container .restart-button{
     width: max(4vw, 5vh);
 }
 .game-container .restart-button:hover,
-.game-container .home-button:hover {
+.game-container .home-button:hover,
+.game-container .fa-github:hover {
     transform: scale(1.2);
     transition: all 100ms ease-in-out;
 }
 .game-container .home-button:active,
-.game-container .restart-button:active {
+.game-container .restart-button:active,
+.game-container .fa-github:active {
     transform: scale(1.1);
     transition: all 50ms ease-in-out;
 }
-
-/* --------------------------------------------- */
+.game-container .fa-github {
+    color: #92470e;
+    font-size: max(3.5vw, 4.5vh);
+}
 
 .player-1, .player-2 {
     position: absolute;
@@ -115,6 +120,7 @@ body {
     background-image: url(images/player-board.png);
     background-size: 100% 100%;
     transition: all 100ms ease-in-out;
+    opacity: 60%;
 }
 .player-1 {
     left: 2vw;
@@ -125,10 +131,12 @@ body {
 .player-1-turn {
     transform: scale(1.2) translate(3vw, -3vw);
     transition: all 100ms ease-in-out;
+    opacity: 1;
 }
 .player-2-turn {
     transform: scale(1.2) translate(-3vw, -3vw);
     transition: all 100ms ease-in-out;
+    opacity: 1;
 }
 .player-1 > .turn, .player-2 > .turn {
     position: relative;
@@ -157,7 +165,7 @@ body {
 }
 
 
-/* --------------------------------------------- */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 .character-selection {
@@ -272,7 +280,7 @@ body {
 }
 
 
-/* --------------------------------------------- */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 .location-selection {
@@ -341,7 +349,7 @@ body {
 }
 
 
-/* --------------------------------------------- */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 .home {
@@ -377,7 +385,9 @@ body {
 }
 
 
-/* --------------------------------------------- */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
 .modal-container {
     position: absolute;
     z-index: 10;
@@ -448,11 +458,9 @@ body {
 }
 
 
-/* --------------------------------------------- */
-.hide {
-    display: none !important;
-}
-/* --------------------------------------------- */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.hide { display: none !important; }
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 @media only screen and (max-width: 820px) {
@@ -484,11 +492,9 @@ body {
         flex-direction: row;
         transform: translateX(-50%);
     }
-
     .character-selection {
         display: flex;
         flex-direction: column;
         justify-content: start;
     }
 }
-

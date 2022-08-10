@@ -12,17 +12,16 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 
-<!-------------------------------------------------------------------------------------->
-
-    <div class="home screen hide">
+    <div class="home screen">
         <p class="title">Tic-Tac-Toe</p>
         <button class="play-button next">Play</button>
     </div>
 
 
-<!-------------------------------------------------------------------------------------->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 
     <div class="character-selection screen hide">
@@ -36,7 +35,7 @@
                 <p class="player-mark">Player 1 Mark : X</p>
                 <img class="avatar" src="images/avatars/Shadow.png">
                 <input type="text" class="name" id="player-1-name" name="player-1-name" 
-                placeholder="Shadow" spellcheck="false">
+                maxlength="9" placeholder="Shadow" spellcheck="false" autocomplete="off">
             </div>
         </div>
 
@@ -52,13 +51,13 @@
                 <p class="player-mark">Player 2 Mark : O</p>
                 <img class="avatar" src="images/avatars/Shadow.png">
                 <input type="text" class="name" id="player-2-name" name="player-2-name" 
-                maxlength="8" placeholder="Shadow" spellcheck="false">
+                maxlength="9" placeholder="Shadow" spellcheck="false" autocomplete="off"> 
             </div>
         </div>
     </div>
 
 
-<!-------------------------------------------------------------------------------------->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 
     <div class="location-selection screen hide">
@@ -74,13 +73,16 @@
     </div>
 
 
-<!-------------------------------------------------------------------------------------->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 
-    <div class="game-container screen">
+    <div class="game-container screen hide">
         <div class="buttons">
             <img class="home-button" src="images/home-button.png">
             <img class="restart-button" src="images/restart-button.png">
+            <a href="https://github.com/Gaaabbb/tic-tac-toe">
+                <i class="fa-brands fa-github"></i>
+            </a>
         </div>
 
         <div class="score-board">0 - 0 - 0</div>
@@ -112,14 +114,10 @@
             <p class="name">Shadow</p>
             <p class="mark">Mark: O</p>
         </div> 
-
-        <!-- <button class="restart">Restart</button>
-        <button class="rematch">Rematch</button> -->
     </div>
 
 
-<!-------------------------------------------------------------------------------------->
-
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 
     <div class="modal-container modal-hide">
@@ -133,5 +131,7 @@
         </div>
     </div>
 
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 </body>
 </html>
